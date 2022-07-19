@@ -7,7 +7,7 @@ const Navigation = () => {
     <div className='navigation'>
       <div>
         <div>
-          <img width={100} src='/PIC/로고01.png'/>
+        <Link to='/' style={{color:'white'}}> <img width={100} src='/PIC/로고01.png'/> </Link>
         </div>
         <div>
           <Link to='/' style={{color:'white'}}>Home</Link>

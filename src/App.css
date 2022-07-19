@@ -2,6 +2,10 @@ a {
   text-decoration: none;
   color: black;
 }
+.center {
+  margin: 0 auto;
+  width: 80%;
+}
 .navigation {
   display: flex;
   justify-content: space-between;
@@ -84,3 +88,33 @@ a {
   opacity: 1;
   cursor: pointer;
 }
+
+.movie-detail-page {
+  padding-top: 100px;
+}
+
+.poster-info-area {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.poster-info-area > div {
+  padding: 0 15px;
+  width: 400px;
+}
+
+.movie-detail-div-layout {
+  border-bottom: 1px solid white;
+  padding: 20px 0;
+}
+
+.movie-detail-rating-area {
+  background-color: cornflowerblue;
+  margin-top: 25px;
+  padding: 15px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-around;
+}
+
