@@ -69,7 +69,8 @@ a {
   align-items: baseline;
 }
 .genre-badge > div,
-.rating-badge
+.rating-badge,
+.item-badge
 {
   background-color: rgb(255, 60, 0);
   margin: 0 2px;
@@ -118,3 +119,67 @@ a {
   justify-content: space-around;
 }
 
+
+.movie-detail-time-data {
+  display: flex;
+  flex-flow: column;
+  align-items: baseline;
+}
+
+.movie-detail-time-data > div {
+  margin-top: 10px;
+}
+.btn-toggle-on,
+.btn-toggle-off
+{
+  list-style: none;
+  padding: 10px 15px;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.btn-toggle-on {
+  background-color: rgb(255, 60, 0);
+  color: white;
+}
+
+.btn-toggle-off {
+  background-color: white;
+  color: black;
+}
+
+.movie-detail-footer > ul {
+  display: flex;
+}
+
+.review-area {
+  border: 3px solid white;
+  width: 100%;
+  margin-bottom: 150px;
+}
+
+.review-area-item {
+  border-bottom: 1px solid white;
+  padding: 25px 15px;
+}
+
+.relate-area {
+  margin-top: 30px;
+  margin-bottom: 150px;
+}
+
+.modal {
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 1000px;
+  height: 600px;
+  background-color: white;
+}
+.modal > div:first-child {
+  display: flex;
+  justify-content: flex-end;
+  color: red;
+  cursor: pointer;
+}
