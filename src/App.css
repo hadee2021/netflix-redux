@@ -2,6 +2,9 @@ a {
   text-decoration: none;
   color: black;
 }
+li {
+  list-style: none;
+}
 .center {
   margin: 0 auto;
   width: 80%;
@@ -181,5 +184,34 @@ a {
   display: flex;
   justify-content: flex-end;
   color: red;
+  cursor: pointer;
+}
+
+.movies-page {
+  display: flex;
+  margin-top: 50px;
+}
+
+.movies-page-sort {
+  flex: 1;
+}
+
+.movies-page-movie {
+  flex: 3;
+  padding: 0 90px;
+}
+
+.sort,
+.filter
+{
+  border: 1px solid white;
+  width: 250px;
+  height: 35px;
+  margin: 20px 0;
+  padding: 15px 10px;
+  border-radius: 10px;
+  font-size: 24px;
+  display: flex;
+  justify-content: space-between;
   cursor: pointer;
 }
