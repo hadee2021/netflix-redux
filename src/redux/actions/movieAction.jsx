@@ -23,7 +23,7 @@ function getMovies() {
           popularMovies: popularMovies.data,
           topRatedMovies: topRatedMovies.data,
           upComingMovies: upComingMovies.data,
-          genreList: genreList.data.genres
+          genreList: genreList.data.genres,
         }
       })
     }catch(error) {

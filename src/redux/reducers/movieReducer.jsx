@@ -3,7 +3,7 @@ let initialState = {
   topRatedMovies: {},
   upComingMovies: {},
   loading: true,
-  genreList: []
+  genreList: [],
 }
 function movieReducer(state=initialState, action) {
   let {type, payload} = action
