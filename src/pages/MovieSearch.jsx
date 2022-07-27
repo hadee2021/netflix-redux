@@ -31,8 +31,8 @@ const MovieSearch = () => {
 
   return (
     <div className="center movie-search-page">
-      <div className='movie-search-container'>
-        <div className='movie-search-items'>
+      <div className="movie-search-container">
+        <div className="movie-search-items">
           {currentItems?.map((item) => (
             <MovieCard item={item} key={item.id}/>
           ))}
