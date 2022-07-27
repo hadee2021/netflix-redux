@@ -8,7 +8,6 @@ import MovieCard from '../components/MovieCard'
 import Paging from '../components/Paging'
 
 const Movies = () => {
-
   const dispatch = useDispatch()
   const {
     popularMovies,
@@ -49,10 +48,6 @@ const Movies = () => {
   const [sortShow, setSortShow] = useState(false)
   const sortSwitch = () => {
     setSortShow(!sortShow)
-  }
-  const [filterShow, setFilterShow] = useState(false)
-  const filterSwitch = () => {
-    setFilterShow(!filterShow)
   }
 
   const sortAsc = (sortKey) => {
@@ -105,20 +100,6 @@ const Movies = () => {
             <li onClick={() => sortDesc("release_date")}>Release Day(Desc)</li>
             <li onClick={() => sortAsc("vote_average")}>Vote(Asc)</li>
             <li onClick={() => sortDesc("vote_average")}>Vote(Desc)</li>
-          </ul>
-        }
-        <div className="filter" onClick={filterSwitch}>
-          Filter
-          {
-            filterShow 
-            ? <KeyboardArrowUpIcon /> 
-            : <KeyboardArrowDownIcon />
-          }
-        </div>
-        {
-          filterShow &&
-          <ul>
-            <li>filter</li>
           </ul>
         }
       </div>
