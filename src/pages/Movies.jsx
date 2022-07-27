@@ -4,8 +4,9 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import { useDispatch, useSelector } from 'react-redux'
 import { movieAction } from '../redux/actions/movieAction'
 import ClipLoader from 'react-spinners/ClipLoader'
-import MovieCard from '../components/MovieCard'
-import Paging from '../components/Paging'
+// import MovieCard from '../components/MovieCard'
+// import Paging from '../components/Paging'
+import FourPaging from '../components/FourPaging'
 
 const Movies = () => {
   const dispatch = useDispatch()
@@ -22,27 +23,27 @@ const Movies = () => {
     dispatch(movieAction.getMovies())
   },[])
 
-  const [currentPage, setCurrentPage] = useState(1)
-  const handlePageChange = (currentPage) => {
-    setCurrentPage(currentPage)
-  }
+  // const [currentPage, setCurrentPage] = useState(1)
+  // const handlePageChange = (currentPage) => {
+  //   setCurrentPage(currentPage)
+  // }
 
   const [pageItems, setPageItems] = useState([
     ...popularMovies.results,
     ...topRatedMovies.results,
     ...upComingMovies.results
   ])
-  const [currentItems, setCurrentItems] = useState([])
-  const [count, setCount] = useState(0)
-  const [indexOfLastItem, setIndexOfLastItem] = useState(0)
-  const [indexOfFirstItem, setIndexOfFirstItem] = useState(0)
+  // const [currentItems, setCurrentItems] = useState([])
+  // const [count, setCount] = useState(0)
+  // const [indexOfLastItem, setIndexOfLastItem] = useState(0)
+  // const [indexOfFirstItem, setIndexOfFirstItem] = useState(0)
   
-  useEffect(() => {
-    setIndexOfLastItem(4 * currentPage)
-    setIndexOfFirstItem(4 * (currentPage - 1) + 1)
-    setCurrentItems(pageItems?.slice(indexOfFirstItem - 1, indexOfLastItem))
-    setCount(pageItems?.length)
-  },[currentPage, pageItems, indexOfFirstItem])
+  // useEffect(() => {
+  //   setIndexOfLastItem(4 * currentPage)
+  //   setIndexOfFirstItem(4 * (currentPage - 1) + 1)
+  //   setCurrentItems(pageItems?.slice(indexOfFirstItem - 1, indexOfLastItem))
+  //   setCount(pageItems?.length)
+  // },[currentPage, pageItems, indexOfFirstItem])
 
 
   const [sortShow, setSortShow] = useState(false)
@@ -103,7 +104,7 @@ const Movies = () => {
           </ul>
         }
       </div>
-      <div className='movies-page-movie'>
+      {/* <div className='movies-page-movie'>
         {currentItems?.map((item) => (
           <MovieCard item={item} key={item.id}/>
         ))}
@@ -112,7 +113,8 @@ const Movies = () => {
           handlePageChange={handlePageChange}
           count={count}
         />
-      </div>
+      </div> */}
+      <FourPaging pageItems={pageItems}/>
     </div>
   )
 }
