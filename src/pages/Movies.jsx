@@ -23,7 +23,7 @@ const Movies = () => {
     setCurrentPage(currentPage)
   }
 
-  const [pageItems, setPageItems] = useState([])
+  const [pageItems, setPageItems] = useState(popularMovies.results)
   const [currentItems, setCurrentItems] = useState([])
   const [count, setCount] = useState(0)
   const [indexOfLastItem, setIndexOfLastItem] = useState(0)
@@ -32,16 +32,10 @@ const Movies = () => {
   useEffect(() => {
     setIndexOfLastItem(4 * currentPage)
     setIndexOfFirstItem(4 * (currentPage - 1) + 1)
-    setPageItems(popularMovies.results)
     setCurrentItems(pageItems?.slice(indexOfFirstItem - 1, indexOfLastItem))
     setCount(pageItems?.length)
-  },[currentPage, pageItems, popularMovies, indexOfFirstItem])
+  },[currentPage, pageItems, indexOfFirstItem])
 
-  const [choiceSort, setChoiceSort] = useState([])
-  useEffect(() => {
-    setChoiceSort(popularMovies.results)
-  },[])
-  console.log('choiceSort: ',choiceSort)
 
   const [sortShow, setSortShow] = useState(false)
   const sortSwitch = () => {
@@ -64,12 +58,12 @@ const Movies = () => {
         </div>
         {sortShow &&
           <ul className='sort-ul'>
-            <li onClick={() => setChoiceSort(popularMovies.results)}>popularMovies(Asc)</li>
-            <li onClick={() => setChoiceSort(popularMovies.results)}>popularMovies(Desc)</li>
-            <li onClick={() => setChoiceSort(topRatedMovies.results)}>topRatedMovies(Asc)</li>
-            <li onClick={() => setChoiceSort(topRatedMovies.results)}>topRatedMovies(Desc)</li>
-            <li onClick={() => setChoiceSort(upComingMovies.results)}>upComingMovies(Asc)</li>
-            <li onClick={() => setChoiceSort(upComingMovies.results)}>upComingMovies(Desc)</li>
+            <li onClick={() => setPageItems(popularMovies.results)}>popularMovies(Asc)</li>
+            <li onClick={() => setPageItems(popularMovies.results)}>popularMovies(Desc)</li>
+            <li onClick={() => setPageItems(topRatedMovies.results)}>topRatedMovies(Asc)</li>
+            <li onClick={() => setPageItems(topRatedMovies.results)}>topRatedMovies(Desc)</li>
+            <li onClick={() => setPageItems(upComingMovies.results)}>upComingMovies(Asc)</li>
+            <li onClick={() => setPageItems(upComingMovies.results)}>upComingMovies(Desc)</li>
           </ul>
         }
         <div className='filter' onClick={filterSwitch}>
