@@ -22,10 +22,12 @@ const FourPaging = ({
     },[currentPage, pageItems, indexOfFirstItem])
 
   return (
-    <div className="movie-search-items">
-      {currentItems?.map((item, index) => (
-        <MovieCard item={item} key={item.id + index}/>
-      ))}
+    <div className="movie-four-container">
+      <div className="movie-four-items">
+        {currentItems?.map((item, index) => (
+          <MovieCard item={item} key={item.id + index}/>
+        ))}
+      </div>
       <Paging 
         currentPage={currentPage}
         handlePageChange={handlePageChange}

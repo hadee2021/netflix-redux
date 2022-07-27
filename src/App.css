@@ -232,12 +232,12 @@ li {
   padding-bottom: 25px;
 }
 
-.movie-search-container {
+.movie-four-container {
   display: flex;
   flex-flow: column;
 }
 
-.movie-search-items {
+.movie-four-items {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
