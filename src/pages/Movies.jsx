@@ -10,7 +10,12 @@ import Paging from '../components/Paging'
 const Movies = () => {
 
   const dispatch = useDispatch()
-  const {popularMovies, topRatedMovies, upComingMovies, loading} = useSelector(
+  const {
+    popularMovies,
+    topRatedMovies,
+    upComingMovies,
+    loading
+  } = useSelector(
     (state) => state.movie
   )
   
@@ -23,7 +28,11 @@ const Movies = () => {
     setCurrentPage(currentPage)
   }
 
-  const [pageItems, setPageItems] = useState(popularMovies.results)
+  const [pageItems, setPageItems] = useState([
+    ...popularMovies.results,
+    ...topRatedMovies.results,
+    ...upComingMovies.results
+  ])
   const [currentItems, setCurrentItems] = useState([])
   const [count, setCount] = useState(0)
   const [indexOfLastItem, setIndexOfLastItem] = useState(0)
@@ -46,31 +55,68 @@ const Movies = () => {
     setFilterShow(!filterShow)
   }
 
+  const sortAsc = (sortKey) => {
+    const newItem = [...pageItems]
+    newItem.sort((a, b) => {
+      if(a[sortKey] > b[sortKey]) {
+        return 1
+      }
+      if(a[sortKey] < b[sortKey]) {
+        return -1
+      }
+      return 0
+    })
+    setPageItems(newItem)
+  }
+  const sortDesc = (sortKey) => {
+    const newItem = [...pageItems]
+    newItem.sort((a, b) => {
+      if(a[sortKey] < b[sortKey]) {
+        return 1
+      }
+      if(a[sortKey] > b[sortKey]) {
+        return -1
+      }
+      return 0
+    })
+    setPageItems(newItem)
+  }
+
   if(loading) {
     return <ClipLoader color="#ffff" loading={loading}  size={150} />
   }
   return (
-    <div className='center movies-page'>
-      <div className='movies-page-menu'>
-        <div className='sort' onClick={sortSwitch}>
+    <div className="center movies-page">
+      <div className="movies-page-menu">
+        <div className="sort" onClick={sortSwitch}>
           Sort
-          {sortShow ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+          {
+            sortShow 
+            ? <KeyboardArrowUpIcon /> 
+            : <KeyboardArrowDownIcon />
+          }
         </div>
-        {sortShow &&
-          <ul className='sort-ul'>
-            <li onClick={() => setPageItems(popularMovies.results)}>popularMovies(Asc)</li>
-            <li onClick={() => setPageItems(popularMovies.results)}>popularMovies(Desc)</li>
-            <li onClick={() => setPageItems(topRatedMovies.results)}>topRatedMovies(Asc)</li>
-            <li onClick={() => setPageItems(topRatedMovies.results)}>topRatedMovies(Desc)</li>
-            <li onClick={() => setPageItems(upComingMovies.results)}>upComingMovies(Asc)</li>
-            <li onClick={() => setPageItems(upComingMovies.results)}>upComingMovies(Desc)</li>
+        {
+          sortShow &&
+          <ul className="sort-ul">
+            <li onClick={() => sortAsc("popularity")}>Popularity(Asc)</li>
+            <li onClick={() => sortDesc("popularity")}>Popularity(Desc)</li>
+            <li onClick={() => sortAsc("release_date")}>Release Day(Asc)</li>
+            <li onClick={() => sortDesc("release_date")}>Release Day(Desc)</li>
+            <li onClick={() => sortAsc("vote_average")}>Vote(Asc)</li>
+            <li onClick={() => sortDesc("vote_average")}>Vote(Desc)</li>
           </ul>
         }
-        <div className='filter' onClick={filterSwitch}>
+        <div className="filter" onClick={filterSwitch}>
           Filter
-          {filterShow ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+          {
+            filterShow 
+            ? <KeyboardArrowUpIcon /> 
+            : <KeyboardArrowDownIcon />
+          }
         </div>
-        {filterShow &&
+        {
+          filterShow &&
           <ul>
             <li>filter</li>
           </ul>

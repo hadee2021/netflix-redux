@@ -9,7 +9,7 @@ const Banner = ({movie}) => {
         ")"
       }}
     >
-      <div className='banner-info'>
+      <div className="banner-info">
         <h1>{movie.title}</h1>
         <p>{movie.overview}</p>
       </div>

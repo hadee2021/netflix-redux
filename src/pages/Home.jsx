@@ -7,7 +7,12 @@ import ClipLoader from "react-spinners/ClipLoader"
 
 const Home = () => {
   const dispatch = useDispatch()
-  const {popularMovies, topRatedMovies, upComingMovies, loading} = useSelector(
+  const {
+    popularMovies,
+    topRatedMovies,
+    upComingMovies,
+    loading
+  } = useSelector(
     (state) => state.movie
   )
   console.log('popularMovies', popularMovies)
@@ -22,9 +27,7 @@ const Home = () => {
   }
   return (
     <div>
-      
       <Banner movie={popularMovies.results[6]}/>
-
       <h1>Popular Movie</h1>
       <MovieSlide movies={popularMovies}/>
       <h1>Top rated Movie</h1>
