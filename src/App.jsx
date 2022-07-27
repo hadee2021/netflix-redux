@@ -6,6 +6,7 @@ import MovieDetail from './pages/MovieDetail'
 import Navigation from './components/Navigation'
 import { ThemeProvider } from '@mui/material'
 import theme from './theme'
+import MovieSearch from './pages/MovieSearch'
 
 function App() {
   return (
@@ -13,9 +14,10 @@ function App() {
       <ThemeProvider theme={theme}>
         <Navigation />
         <Routes>
-          <Route path='/' element={<Home />}/>
-          <Route path='/movies' element={<Movies />}/>
-          <Route path='/movies/:id' element={<MovieDetail />}/>
+          <Route path="/" element={<Home />}/>
+          <Route path="/movies" element={<Movies />}/>
+          <Route path="/movies/:id" element={<MovieDetail />}/>
+          <Route path="/search" element={<MovieSearch />} />
         </Routes>
       </ThemeProvider>
     </div>

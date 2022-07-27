@@ -224,3 +224,23 @@ li {
   padding: 5px 0;
   cursor: pointer;
 }
+
+.movie-search-page {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  padding-bottom: 25px;
+}
+
+.movie-search-container {
+  display: flex;
+  flex-flow: column;
+}
+
+.movie-search-items {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 15px;
+  width: 700px;
+}
