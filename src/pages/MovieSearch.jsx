@@ -15,7 +15,6 @@ const MovieSearch = () => {
   const [pageItems, setPageItems] = useState(searchedMovie)
   useEffect(() => {
     setPageItems(searchedMovie)
-    console.log('searchedMovie :',searchedMovie)
   },[searchedMovie])
   const [currentItems, setCurrentItems] = useState([])
   const [count, setCount] = useState(0)
