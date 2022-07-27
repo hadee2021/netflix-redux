@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
+// import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
+// import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import { useDispatch, useSelector } from 'react-redux'
 import { movieAction } from '../redux/actions/movieAction'
 import ClipLoader from 'react-spinners/ClipLoader'
 import FourPaging from '../components/FourPaging'
+import Sort from '../components/Sort'
 
 const Movies = () => {
   const dispatch = useDispatch()
@@ -27,44 +28,44 @@ const Movies = () => {
     ...upComingMovies.results
   ])
 
-  const [sortShow, setSortShow] = useState(false)
-  const sortSwitch = () => {
-    setSortShow(!sortShow)
-  }
+  // const [sortShow, setSortShow] = useState(false)
+  // const sortSwitch = () => {
+  //   setSortShow(!sortShow)
+  // }
 
-  const sortAsc = (sortKey) => {
-    const newItem = [...pageItems]
-    newItem.sort((a, b) => {
-      if(a[sortKey] > b[sortKey]) {
-        return 1
-      }
-      if(a[sortKey] < b[sortKey]) {
-        return -1
-      }
-      return 0
-    })
-    setPageItems(newItem)
-  }
-  const sortDesc = (sortKey) => {
-    const newItem = [...pageItems]
-    newItem.sort((a, b) => {
-      if(a[sortKey] < b[sortKey]) {
-        return 1
-      }
-      if(a[sortKey] > b[sortKey]) {
-        return -1
-      }
-      return 0
-    })
-    setPageItems(newItem)
-  }
+  // const sortAsc = (sortKey) => {
+  //   const newItem = [...pageItems]
+  //   newItem.sort((a, b) => {
+  //     if(a[sortKey] > b[sortKey]) {
+  //       return 1
+  //     }
+  //     if(a[sortKey] < b[sortKey]) {
+  //       return -1
+  //     }
+  //     return 0
+  //   })
+  //   setPageItems(newItem)
+  // }
+  // const sortDesc = (sortKey) => {
+  //   const newItem = [...pageItems]
+  //   newItem.sort((a, b) => {
+  //     if(a[sortKey] < b[sortKey]) {
+  //       return 1
+  //     }
+  //     if(a[sortKey] > b[sortKey]) {
+  //       return -1
+  //     }
+  //     return 0
+  //   })
+  //   setPageItems(newItem)
+  // }
 
   if(loading) {
     return <ClipLoader color="#ffff" loading={loading}  size={150} />
   }
   return (
     <div className="center movies-page">
-      <div className="movies-page-menu">
+      {/* <div className="movies-page-menu">
         <div className="sort" onClick={sortSwitch}>
           Sort
           {
@@ -84,8 +85,14 @@ const Movies = () => {
             <li onClick={() => sortDesc("vote_average")}>Vote(Desc)</li>
           </ul>
         }
-      </div>
-      <FourPaging pageItems={pageItems}/>
+      </div> */}
+      <Sort 
+        pageItems={pageItems} 
+        setPageItems={setPageItems}
+      />
+      <FourPaging 
+        pageItems={pageItems}
+      />
     </div>
   )
 }
