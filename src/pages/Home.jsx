@@ -26,7 +26,7 @@ const Home = () => {
     return <ClipLoader color="#ffff" loading={loading}  size={150} />
   }
   return (
-    <div>
+    <div className='home-page'>
       <Banner movie={popularMovies.results[6]}/>
       <h1>Popular Movie</h1>
       <MovieSlide movies={popularMovies}/>

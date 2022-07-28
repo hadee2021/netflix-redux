@@ -252,4 +252,24 @@ li {
   .movie-four-items {
     width: 0;
   }
+  .movie-search-page {
+    width: 50%;
+  }
+  .home-page > h1{
+    text-align: center;
+  }
+  .movie-slide {
+    margin: 0 35px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navigation{
+    flex-flow: column;
+    width: 100%;
+    padding: 15px 0;
+  }
+  .navigation > div {
+    align-self: center;
+  }
 }
