@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-// import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
-// import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 import { useDispatch, useSelector } from 'react-redux'
 import { movieAction } from '../redux/actions/movieAction'
 import ClipLoader from 'react-spinners/ClipLoader'

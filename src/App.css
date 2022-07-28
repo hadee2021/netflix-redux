@@ -5,10 +5,6 @@ a {
 li {
   list-style: none;
 }
-.center {
-  margin: 0 auto;
-  width: 80%;
-}
 .navigation {
   display: flex;
   justify-content: space-between;
@@ -95,6 +91,8 @@ li {
 
 .movie-detail-page {
   padding-top: 100px;
+  margin: 0 auto;
+  width: 80%;
 }
 
 .poster-info-area {
@@ -189,20 +187,10 @@ li {
 
 .movies-page {
   display: flex;
-  margin-top: 50px;
   padding-bottom: 25px;
-}
-
-.movies-page-menu {
-  flex: 1;
-}
-
-.movies-page-movie {
-  flex: 3;
-  padding: 0 90px;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
+  margin: 0 auto;
+  width: 1000px;
+  margin-top: 50px;
 }
 
 .sort,
@@ -228,8 +216,10 @@ li {
 .movie-search-page {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
   padding-bottom: 25px;
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 1000px;
 }
 
 .movie-four-container {
@@ -243,4 +233,23 @@ li {
   justify-content: center;
   gap: 15px;
   width: 700px;
+  align-self: center;
+}
+
+@media screen and (max-width: 1000px) {
+  .movies-page {
+    flex-flow: column;
+    width: 50%;
+  }
+  .movies-page-menu {
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+  }
+  .sort {
+    align-self: center;
+  }
+  .movie-four-items {
+    width: 0;
+  }
 }

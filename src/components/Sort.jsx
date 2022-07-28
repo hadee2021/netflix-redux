@@ -8,7 +8,7 @@ const Sort = ({pageItems, setPageItems}) => {
     setSortShow(!sortShow)
   }
 
-  const sortAsc = (sortKey) => {
+  const sortItem = (sortKey, desc) => {
     const newItem = [...pageItems]
     newItem.sort((a, b) => {
       if(a[sortKey] > b[sortKey]) {
@@ -19,21 +19,12 @@ const Sort = ({pageItems, setPageItems}) => {
       }
       return 0
     })
+    if(desc) {
+      newItem.reverse()
+    }
     setPageItems(newItem)
   }
-  const sortDesc = (sortKey) => {
-    const newItem = [...pageItems]
-    newItem.sort((a, b) => {
-      if(a[sortKey] < b[sortKey]) {
-        return 1
-      }
-      if(a[sortKey] > b[sortKey]) {
-        return -1
-      }
-      return 0
-    })
-    setPageItems(newItem)
-  }
+  
   return (
     <div className="movies-page-menu">
       <div className="sort" onClick={sortSwitch}>
@@ -47,12 +38,12 @@ const Sort = ({pageItems, setPageItems}) => {
       {
         sortShow &&
         <ul className="sort-ul">
-          <li onClick={() => sortAsc("popularity")}>Popularity(Asc)</li>
-          <li onClick={() => sortDesc("popularity")}>Popularity(Desc)</li>
-          <li onClick={() => sortAsc("release_date")}>Release Day(Asc)</li>
-          <li onClick={() => sortDesc("release_date")}>Release Day(Desc)</li>
-          <li onClick={() => sortAsc("vote_average")}>Vote(Asc)</li>
-          <li onClick={() => sortDesc("vote_average")}>Vote(Desc)</li>
+          <li onClick={() => sortItem("popularity")}>Popularity(Asc)</li>
+          <li onClick={() => sortItem("popularity", "desc")}>Popularity(Desc)</li>
+          <li onClick={() => sortItem("release_date")}>Release Day(Asc)</li>
+          <li onClick={() => sortItem("release_date", "desc")}>Release Day(Desc)</li>
+          <li onClick={() => sortItem("vote_average")}>Vote(Asc)</li>
+          <li onClick={() => sortItem("vote_average", "desc")}>Vote(Desc)</li>
         </ul>
       }
     </div>
