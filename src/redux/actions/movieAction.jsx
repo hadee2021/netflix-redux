@@ -1,5 +1,4 @@
 import api from '../api'
-
 const API_KEY = process.env.REACT_APP_API_KEY
 
 function getMovies() {
@@ -26,10 +25,10 @@ function getMovies() {
           genreList: genreList.data.genres,
         }
       })
-    }catch(error) {
+    }
+    catch(error) {
       dispatch({type: "GET_MOVIES_FAILURE"})
     }
-    
   }
 }
 

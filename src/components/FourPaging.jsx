@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react'
 import MovieCard from './MovieCard'
 import Paging from './Paging'
 
-const FourPaging = ({
-  pageItems
-  }) => {
+const FourPaging = ({pageItems}) => {
     const [currentPage, setCurrentPage] = useState(1)
     const handlePageChange = (currentPage) => {
       setCurrentPage(currentPage)

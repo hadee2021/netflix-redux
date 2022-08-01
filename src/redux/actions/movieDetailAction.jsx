@@ -25,10 +25,10 @@ function getDetails(id) {
           video: videoData.data
         }
       })
-    }catch(error) {
+    }
+    catch(error) {
       dispatch({type: "GET_DETAIL_FAILURE"})
     }
-    
   }
 }
 
