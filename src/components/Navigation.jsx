@@ -41,7 +41,12 @@ const Navigation = () => {
         </div>
       </div>
       <div>
-        <input type="text" placeholder="Search" value={query || ''} onChange={(e) => setQuery(e.target.value)}/>
+        <input 
+          type="text" 
+          placeholder="Search" 
+          value={query || ''} 
+          onChange={(e) => setQuery(e.target.value)}
+        />
         <Button 
           variant="contained" 
           color="neutral"
