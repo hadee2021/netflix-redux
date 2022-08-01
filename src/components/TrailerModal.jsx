@@ -9,8 +9,8 @@ const TrailerModal = ({setOpen, videoArr}) => {
   }
   return (
     <div className='modal'>
-      <div onClick={handleClose}>
-        <Close />
+      <div>
+        <Close onClick={handleClose} />
       </div>
       <YouTube
         title="유튜브"
